@@ -1,0 +1,92 @@
+.card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1 1;
+  height: 10rem;
+  width: 240px;
+  border-radius: 1rem;
+  color: #472d86;
+  padding: 2rem;
+  cursor: pointer;
+  font-size:17px;
+  
+}
+
+.CompactCard:hover {
+box-shadow: none !important;
+}
+
+.detail {
+flex: 1;
+display: flex;
+flex-direction: column;
+font-size: 33px;
+align-items: center;
+justify-content: center;
+text-shadow: 0px 0px 15px white;
+}
+
+.ExpandedCard {
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  padding: 20px;
+  width: 300px;    
+  z-index: 10;
+  left: 20rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1rem;
+  
+ 
+}
+
+.addinput {
+width: 90%;
+color: #472d86;
+padding: 10px;
+margin-bottom: 5px;
+border-radius: 10px;
+border: none;
+}
+
+
+.addbutton {
+width: 200px;
+padding: 10px;
+margin-bottom: 10px;
+background-color: #6540bf;
+color: rgb(255, 255, 255);
+border: none;
+border-radius: 15px;
+cursor: pointer;
+}
+
+@media screen and (max-width: 850px) {
+.ExpandedCard {
+  height: 98%;
+  left: 25px;
+  width: 240px;
+  color:#472d86;
+  font-size: 26px;
+  font-weight: bold;
+  text-shadow: 0px 0px 15px white;
+}
+.addButton {
+  width: 200px; 
+}
+}
+
+@media screen and (min-width: 851px) {
+.ExpandedCard {
+  height: 90%;
+  width: 240px;
+  color: #472d86;
+  font-size: 26px;
+  font-weight: bold;
+  text-shadow: 0px 0px 15px white;
+}
+}
+

@@ -1,0 +1,33 @@
+.opening-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  background-color: #d4c4fb;
+}
+
+.title {
+  font-size: 3rem;
+  color: #472d86;
+  margin-bottom: 2rem;
+}
+
+.links {
+  display: flex;
+  gap: 1rem;
+}
+
+.link {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  background-color: #6540bf;
+  color: #fff;
+  border-radius: 15px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.link:hover {
+  background-color: #472d86;
+}
