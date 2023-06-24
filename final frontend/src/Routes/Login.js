@@ -10,6 +10,8 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loggedInUser, setLoggedInUser] = useState(null);
+  const [email1,setEmail1] = useState('')
+  console.log(email1)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,16 +36,22 @@ const Login = () => {
         arr[1].forEach((profile) => {
           console.log("Here");
           if (profile.email === email && profile.password === password) {
+            setEmail1(profile.email)
+            console.log(profile.email)
             loginSuccessful = true;
             console.log("Login successful");
             console.log("User data:", profile);
             setLoggedInUser(profile);
+            const encodedEmail = encodeURIComponent(profile.email);
+          
+          window.location.href = `/dashboard?email=${encodedEmail}`;
+          // window.location = `/profile?email=${encodedEmail}`;
           }
         });
 
         if (loginSuccessful) {
           // Redirect to "/dashboard" without reloading the page
-          navigate("/dashboard");
+          
         } else {
           console.log("Login failed");
           setError("Invalid email or password. Please try again.");

@@ -1,39 +1,40 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import "./Navstyle.css";
 import { Navitem } from "./Navitem";
 import { Link } from "react-router-dom";
 
-class Navbar extends Component {
-  state = { clicked: false };
-  handleClick = () => {
-    this.setState({ clicked: !this.state.clicked });
+const Navbar = ({ value }) => {
+  const [clicked, setClicked] = useState(false);
+
+  const handleClick = () => {
+    setClicked(!clicked);
   };
-  render() {
-    return (
-      <nav className="NavbarItems" style={{ background: "#D4C4FB" }}>
-        <h1 className="navbar-logo" ><Link to="/Dashboard" style={{textDecoration:"none",color:"#472d86"}}>ExpenseX</Link></h1>
 
-        <div className="menu-icons" onClick={this.handleClick}>
-          <i
-            className={this.state.clicked ? "fas fa-times" : "fas fa-bars"}
-          ></i>
-        </div>
+  const email = value;
+  console.log(email)
 
-        <ul className={this.state.clicked ? "nav-menu active" : "nav-menu"}>
-          {Navitem.map((item, index) => {
-            return (
-              <li key={index}>
-                <a className={item.cName} href={item.url}>
-                  <i className={item.icon}></i>
-                  {item.title}
-                </a>
-              </li> 
-            );
-          })}
-        </ul>
-      </nav>
-    );
-  }
+  return (
+    <nav className="NavbarItems" style={{ background: "#D4C4FB" }}>
+      <h1 className="navbar-logo" >
+        <Link to="/Dashboard" style={{ textDecoration: "none", color: "#472d86" }}>ExpenseX</Link>
+      </h1>
+
+      <div className="menu-icons" onClick={handleClick}>
+        <i className={clicked ? "fas fa-times" : "fas fa-bars"}></i>
+      </div>
+
+      <ul className={clicked ? "nav-menu active" : "nav-menu"}>
+        {Navitem.map((item, index) => (
+          <li key={index}>
+            <a className={item.cName} href={`/profile?email=${email}`} value={email}>
+              <i className={item.icon}></i>
+              {item.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
 }
 
 export default Navbar;

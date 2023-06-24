@@ -3,6 +3,13 @@ import './Dashboard.css';
 import Navbar from "../components/Navbar";
 
 function Dashboard() {
+  const getEmailFromURL = () => {
+    const searchParams = new URLSearchParams(window.location.search);
+    return searchParams.get('email');
+  };
+
+  const email = getEmailFromURL();
+  console.log(email)
   const [incomeAmount, setIncomeAmount] = useState('');
   const [incomeLabel, setIncomeLabel] = useState('');
   const [expenseAmount, setExpenseAmount] = useState('');
@@ -110,7 +117,7 @@ function Dashboard() {
    
   return (
     <div className="container">
-     <Navbar/>
+     <Navbar value={email}/>
      <br />
      <br />
       {/* Add Income section */}
